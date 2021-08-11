@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>n-object friction</title>
+<style type="text/css">
+    canvas {background-color: #FFF;border:1px solid#999;}
+</style>
+</script>
+{% endblock %}
+{% block body %}
+<div id="time">time: 0</div>
+<div id="record">record: 0</div>
+<div id="outer">
+    <div id="canvasContainer">
+        <canvas id="tutorial" width="800" height="480"></canvas>
+        <div id="output"></div>
+    </div>
+</div>
+<form name="myForm">
+    <!-- <input type="button" name="play" value="play" onClick="clearInterval(timerID);timerID = setInterval(run(),30);chg1()"/>
+    <input type="button" name="pause" value="pause" disabled onClick="clearInterval(timerID);chg3()"/>
+    <input type="button" name="fast" value="slow" onClick="clearInterval(timerID);timerID = setInterval(run,80);chg2()"/> -->
+    <input type="button" name="play" value="play" onClick="timerID=setInterval(run,20);chg1()"/>
+    <input type="button" name="pause" value="pause" disabled onClick="clearInterval(timerID);chg3()"/>
+    <input type="button" name="fast" value="slow" onClick="timerID=setInterval(run,1000);chg2()"/>
+</form>
+<form name="ele">
+    <p><label for="input1">縮尺[%]</label>
+    <input type="text" value="100"></p>
+    <p><label for="input1">台車質量[kg]</label>
+    <input type="text" value="1"></p>
+    <p><label for="input1">棒の質量[kg]</label>
+    <input type="text" value="1"></p>
+    <p><label for="input1">棒の長さ[m]</label>
+    <input type="text" value="0.8"></p>
+    <p><label for="input1">重力加速度[m/s^2]</label>
+    <input type="text" value="9.8"></p>
+    <p><label for="input1">キーを一回押したときの力[N]</label>
+    <input type="text" value="10"></p>
+</form>
+
+
+<script type="text/javascript" src="param.js"></script>
+<script type="text/javascript" src="apparatus.js"></script>
+<script type="text/javascript" src="run.js"></script>
+{% endblock %}
